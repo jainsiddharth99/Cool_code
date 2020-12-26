@@ -1,3 +1,5 @@
+# there will be 3 packs fo cards(total 21 cards)
+# select one from any one pack
 import random
 import tkinter
 class Card:
