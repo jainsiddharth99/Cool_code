@@ -1,2 +1,1 @@
-# Card-Tricks
-Inspired from magic tricks learned from youtube
+# Tricks, hacks, password crackers ...
