@@ -15,35 +15,47 @@ class PackagingCompany:
         self.containerlist = containerlist
         
     def findcost(self,cid):
-        global cost
-        for id in containerlist:
-            cost=Container.findvolume()*pricepersqrft
-            # if id==cid:
-            #     cost=Container.findvolume()*pricepersqrft
-        return cost
+        for i in self.containerlist:
+            if i.id==cid:
+                cost=i.findvolume()*i.pricepersqrft
+                return cost
+            return None
     def findlargest(self):
-        for i in containerlist:
-            large=max(i)
-        return large
+        vol={}
+        for i in self.containerlist:
+            volume=i.findvolume()
+            volume=max(i.volume)
+        return volume,i.id
+            
     
 if __name__=="__main__":
-    n=int(input())
+    # n=int(input())
+    n=1
     containerlist=[]
     
     for i in range(n):
-        id =int(input())
-        length=int(input())
-        breadth=int(input())
-        height=int(input())
-        pricepersqrft=int(input())
+        id=100
+        length=2
+        breadth=3
+        height=4
+        pricepersqrft=100
+        # id =int(input())
+        # length=int(input())
+        # breadth=int(input())
+        # height=int(input())
+        # pricepersqrft=int(input())
         con=Container(id,length,breadth,height,pricepersqrft)
         containerlist.append(con)
     
     pk=PackagingCompany(containerlist)
-    cid=int(input())
+    cid=100
+    # cid=int(input())
     
     a=pk.findcost(cid)
-    print(a)
+    if a==None:
+        print("No Container Found")
+    else:
+        print(a)
     
     b=pk.findlargest()
     print(b)
